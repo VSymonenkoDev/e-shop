@@ -1,6 +1,15 @@
-import {IProduct} from "./product";
+export class IShoppingCartItem {
+  $key: string;
+  title: string;
+  imageUrl: string;
+  price: number;
+  quantity: number;
 
-export interface IShoppingCartItem {
- product: IProduct;
- quantity: number;
+  constructor(init?: Partial<IShoppingCartItem>) {
+    Object.assign(this, init);
+  }
+
+  get totalPrice() {
+    return this.price * this.quantity;
+  }
 }

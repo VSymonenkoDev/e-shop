@@ -1,0 +1,14 @@
+.w-200 {
+  width: 200px;
+}
+
+.w-230 {
+  width: 230px;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background-size: cover;
+}

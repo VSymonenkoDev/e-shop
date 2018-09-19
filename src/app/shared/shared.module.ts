@@ -9,10 +9,18 @@ import {OrderService} from 'shared/services/order.service';
 import {UserService} from 'shared/services/user.service';
 import {AuthService} from 'shared/services/auth.service';
 import {CategoryService} from 'shared/services/category.service';
+import {FormsModule} from '@angular/forms';
+import {DataTableModule} from 'angular5-data-table';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {AngularFireAuthModule} from 'angularfire2/auth';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    DataTableModule.forRoot(),
+    NgbModule.forRoot(),
   ],
   declarations: [
     ProductCardComponent,
@@ -20,7 +28,13 @@ import {CategoryService} from 'shared/services/category.service';
   ],
   exports: [
     ProductCardComponent,
-    ProductQuantityComponent
+    ProductQuantityComponent,
+    CommonModule,
+    FormsModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    DataTableModule.forRoot().ngModule,
+    NgbModule.forRoot().ngModule
   ],
   providers: [
     AuthService,

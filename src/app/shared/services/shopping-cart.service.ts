@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import {AngularFireDatabase, FirebaseObjectObservable} from "angularfire2/database";
-import {IProduct} from "../models/product";
+import {Injectable} from '@angular/core';
+import {AngularFireDatabase} from 'angularfire2/database';
+import {IProduct} from '../models/product';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/map';
-import {IShoppingCart} from "../models/shopping-cart";
+import {IShoppingCart} from '../models/shopping-cart';
 import {Observable} from 'rxjs/Observable';
 
 @Injectable()

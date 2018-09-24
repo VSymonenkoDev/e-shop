@@ -1,15 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import {ProductService} from "../../../shared/services/product.service";
-import {Subscription} from "rxjs/Subscription";
-import {IProduct} from "../../../shared/models/product";
-import {DataTableResource} from "angular5-data-table";
+import {Component, OnDestroy} from '@angular/core';
+import {ProductService} from 'shared/services/product.service';
+import {Subscription} from 'rxjs/Subscription';
+import {IProduct} from 'shared/models/product';
+import {DataTableResource} from 'angular5-data-table';
 
 @Component({
   selector: 'admin-products',
   templateUrl: './admin-products.component.html',
   styleUrls: ['./admin-products.component.css']
 })
-export class AdminProductsComponent implements OnInit, OnDestroy {
+export class AdminProductsComponent implements OnDestroy {
   products: IProduct[];
   items: IProduct[] = [];
   subscription: Subscription;
@@ -22,14 +22,6 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
         this.products = products;
         this.initTable(products);
       });
-  }
-
-  private initTable(products: IProduct[]) {
-    this.tableResource = new DataTableResource(products);
-    this.tableResource.query({offset: 0})
-      .then(items => this.items = items);
-    this.tableResource.count()
-      .then(count => this.itemCount = count);
   }
 
   reloadItems(params) {
@@ -45,7 +37,12 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
     this.initTable(filteredProducts);
   }
 
-  ngOnInit() {
+  private initTable(products: IProduct[]) {
+    this.tableResource = new DataTableResource(products);
+    this.tableResource.query({offset: 0})
+      .then(items => this.items = items);
+    this.tableResource.count()
+      .then(count => this.itemCount = count);
   }
 
   ngOnDestroy() {

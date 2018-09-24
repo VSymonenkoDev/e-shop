@@ -1,4 +1,4 @@
-import {IShoppingCartItem} from "./shopping-cart-item";
+import {IShoppingCartItem} from './shopping-cart-item';
 import {IProduct} from './product';
 
 export class IShoppingCart {
